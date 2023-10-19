@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NavegationDemo.MVVM.Pages.StartPage"
              Title="StartPage">
+    <NavigationPage.TitleView>
+        <Frame Margin="10"
+               Padding="0"
+               CornerRadius="0">
+            <SearchBar Placeholder="Search Places"/>
+        </Frame>
+    </NavigationPage.TitleView>
     <StackLayout VerticalOptions="Center" 
                  HorizontalOptions="Center">
         <Entry Text="{Binding Name}"/>
