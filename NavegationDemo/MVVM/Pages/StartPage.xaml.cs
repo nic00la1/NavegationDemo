@@ -1,3 +1,4 @@
+using NavegationDemo.MVVM.ViewModels;
 using NavegationDemo.Utilities;
 
 namespace NavegationDemo.MVVM.Pages;
@@ -7,6 +8,7 @@ public partial class StartPage : ContentPage
     public StartPage()
     {
         InitializeComponent();
+        BindingContext = new StartPageViewModel();
     }
 
     protected override void OnAppearing()
@@ -17,7 +19,16 @@ public partial class StartPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Page2(txtName.Text));
+        var currentViewModel =
+            ((StartPageViewModel)BindingContext).Name;
+
+        Navigation.PushAsync(new Page2
+        {
+            BindingContext = new Page2ViewModel
+            {
+                Name = currentViewModel
+            }
+        });
         //NavUtilities.DeletePage(Navigation, "StartPage");
     }
 }
