@@ -4,10 +4,10 @@ namespace NavegationDemo.MVVM.Pages;
 
 public partial class StartPage : ContentPage
 {
-	public StartPage()
-	{
-		InitializeComponent();
-	}
+    public StartPage()
+    {
+        InitializeComponent();
+    }
 
     protected override void OnAppearing()
     {
@@ -17,7 +17,7 @@ public partial class StartPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-		Navigation.PushAsync(new Page2());
-        NavUtilities.DeletePage(Navigation, "StartPage");
+        Navigation.PushModalAsync(new CoolPage());
+        //NavUtilities.DeletePage(Navigation, "StartPage");
     }
 }

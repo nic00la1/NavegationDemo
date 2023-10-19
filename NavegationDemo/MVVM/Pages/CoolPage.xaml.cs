@@ -15,4 +15,8 @@ public partial class CoolPage : ContentPage
         NavUtilities.Examine(Navigation);
     }
 
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopModalAsync();
+    }
 }
